@@ -126,7 +126,7 @@ body {
 }
 @media screen and (max-width: 924px) {
   .header {
-    z-index: 11;
+    z-index: 12;
   }
 }
 
@@ -153,11 +153,11 @@ body {
   .menu.active {
     flex-direction: row-reverse;
   }
-  .menu.active .menu__phone {
+  .menu.active .menu__phone-number {
     opacity: 0;
-    transition: opacity 0s ease-out;
+    transition: opacity 0s;
   }
-  .menu.active .menu__phone a {
+  .menu.active .menu__phone-number a {
     pointer-events: none;
   }
   .menu.active .menu__burger {
@@ -179,9 +179,9 @@ body {
 @media screen and (max-width: 924px) {
   .menu__burger {
     display: flex;
-    z-index: 11;
+    z-index: 12;
     opacity: 1;
-    transition: opacity 0.4s ease-in;
+    transition: opacity 1s ease-in;
     align-self: center;
     flex-direction: column;
     justify-content: space-between;
@@ -205,6 +205,7 @@ body {
 
 #menu-burger {
   opacity: 0;
+  transition: opacity 0s;
   position: fixed;
   right: 45px;
   top: 15px;
@@ -246,23 +247,33 @@ body {
   position: relative;
   padding: 30px 20px;
 }
+@media screen and (max-width: 1130px) {
+  .menu__list-item {
+    padding: 30px 15px;
+  }
+}
 @media screen and (max-width: 992px) {
   .menu__list-item {
-    padding: 30px 10px;
+    padding: 20px 10px;
   }
 }
 
 .menu__phone {
   z-index: 10;
-  opacity: 1;
-  transition: opacity 0.4s ease-in;
 }
 
 .menu__phone-number {
   padding: 20px;
+  opacity: 1;
+  transition: opacity 1s ease-in;
 }
 
 .link {
+  font-family: "Open Sans Condensed";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
   position: relative;
   text-transform: uppercase;
 }
@@ -275,6 +286,12 @@ body {
   bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.phone {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.05em;
 }
 
 .first-screen {
@@ -858,7 +875,7 @@ body {
 }
 @media screen and (max-width: 992px) {
   .container {
-    margin-right: 111px;
+    margin-right: 100px;
   }
 }
 @media screen and (max-width: 951px) {

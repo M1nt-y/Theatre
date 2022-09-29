@@ -1,4 +1,27 @@
+const body = document.body;
+const scrollUp = "scroll-up";
+const scrollDown = "scroll-down";
+let lastScroll = 0;
+const burger = document.getElementById('menu__burger');
+const menu = document.getElementById('menu');
+const sidebar = document.getElementById('fixed-panel');
 const anchors = document.querySelectorAll('a[href*="#"]');
+
+burger.onclick = function() {
+  menu.classList.toggle('active');
+  burger.classList.toggle('active');
+  sidebar.classList.toggle('active');
+  body.classList.toggle('hidden');
+};
+
+document.onclick = function(e) {
+  if (!e.target.closest('#menu__burger') && !e.target.closest('#menu') && !e.target.closest('#fixed-panel')) {
+    menu.classList.remove('active');
+    burger.classList.remove('active');
+    sidebar.classList.remove('active');
+    body.classList.remove('hidden');
+  }
+};
 
 for (let anchor of anchors) {
   anchor.addEventListener("click", function(event) {
@@ -10,11 +33,6 @@ for (let anchor of anchors) {
     })
   })
 };
-
-const body = document.body;
-const scrollUp = "scroll-up";
-const scrollDown = "scroll-down";
-let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
@@ -34,26 +52,6 @@ window.addEventListener("scroll", () => {
   }
   lastScroll = currentScroll;
 });
-
-const toggle = document.getElementById('menu__burger');
-const menu = document.getElementById('menu');
-const sidebar = document.getElementById('fixed-panel');
-
-toggle.onclick = function() {
-  menu.classList.toggle('active');
-  toggle.classList.toggle('active');
-  sidebar.classList.toggle('active');
-  body.classList.toggle('hidden');
-};
-
-document.onclick = function(e) {
-  if (e.target.id !== 'menu__burger' && e.target.id !== 'menu' && e.target.id !== 'fixed-panel') {
-    menu.classList.remove('active');
-    toggle.classList.remove('active');
-    sidebar.classList.remove('active');
-    body.classList.remove('hidden');
-  }
-};
 
 const swiper = new Swiper('.first-screen__swiper', {
   allowTouchMove: false,
