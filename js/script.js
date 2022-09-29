@@ -15,7 +15,7 @@ burger.onclick = function() {
 };
 
 document.onclick = function(e) {
-  if (!e.target.closest('#menu__burger') && !e.target.closest('#menu') && !e.target.closest('#fixed-panel')) {
+  if (!e.target.closest('#menu__burger') && !e.target.closest('#menu') && e.target.id !== '#fixed-panel') {
     menu.classList.remove('active');
     burger.classList.remove('active');
     sidebar.classList.remove('active');
